@@ -1,0 +1,13 @@
+body {
+    color : #333;
+    font-family: arial;
+    max-width: 650px;
+    margin: 0 auto;
+    padding: 0 16px
+}
+
+footer {
+    color : #888;
+    border-top : 1px solid #eeeeee;
+    padding-top : 5px
+}
