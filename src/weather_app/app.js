@@ -6,7 +6,7 @@ const app = express()
 const geocode = require('./geocode')
 const forecast = require('./forecast')
 const chalk = require('chalk')
-
+const cors = require('cors')
 const publicDirectoryPath = path.join(__dirname, '../../public')
 const viewsPath = path.join(__dirname, '../../templates/views')
 const partialPath = path.join(__dirname, '../../templates/partials')
@@ -18,6 +18,7 @@ app.set('view engine', 'hbs')
 app.set('views', viewsPath)
 //setup static directory to serve
 app.use(express.static(publicDirectoryPath))
+app.use(cors());
 
 app.get('', (req, res) => {
     console.log(req.rawHeaders)
@@ -145,9 +146,9 @@ app.get('*', (req, res) => {
     })
 })
 
-app.use((req, res, next) => {
-    res.header("Access-Control-Allow-Origin", "*")
-  }) 
+// app.use((req, res, next) => {
+//     res.header("Access-Control-Allow-Origin", "*")
+//   }) 
   
 app.listen(port, () => {
     console.log('Server is up on port ' + port)
