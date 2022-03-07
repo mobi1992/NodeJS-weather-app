@@ -10,7 +10,7 @@ const chalk = require('chalk')
 const publicDirectoryPath = path.join(__dirname, '../../public')
 const viewsPath = path.join(__dirname, '../../templates/views')
 const partialPath = path.join(__dirname, '../../templates/partials')
-
+const port = process.env.PORT || 3000     // process.env.PORT will be set when we will push the code to heroku otherwise the default port value wich is 3000 will be assigned
 // setup handlebar with partials
 hbs.registerPartials(partialPath)
 // setup handlebar location and view directory
@@ -145,6 +145,6 @@ app.get('*', (req, res) => {
     })
 })
 
-app.listen(3000, () => {
-    console.log('Server is up on port 3000.')
+app.listen(port, () => {
+    console.log('Server is up on port ' + port)
 })

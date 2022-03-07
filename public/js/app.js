@@ -11,7 +11,7 @@ weatherForm.addEventListener('submit', (e) => {
     forecast.innerHTML = 'loading...'
     console.log(location)
     // client side fetch function to fetch the data from the server
-    fetch(`http://localhost:3000/weather?address=${location}`).then(response =>
+    fetch(`/weather?address=${location}`).then(response =>
         response.json().then(data => {
             if (data.error) {
                 console.log(data.error)
