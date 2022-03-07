@@ -145,6 +145,10 @@ app.get('*', (req, res) => {
     })
 })
 
+app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*")
+  }) 
+  
 app.listen(port, () => {
     console.log('Server is up on port ' + port)
 })
